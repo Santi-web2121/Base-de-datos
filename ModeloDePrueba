@@ -1,0 +1,25 @@
+Modelo de Evaluacion Base de Datos:
+
+1- B
+
+2- C
+
+3- D
+
+4- A
+
+5- B
+
+6- C
+
+7- B
+
+8- Si, pues en la primera consulta se unen las tablas clientes y pedidos con el inner join y en la segunda se unen en el where.
+
+9- La cláusula INNER JOIN tiene el proposito de sugerir la parte en comun entre 2 tablas
+
+10- Un diccionario de datos es una lista de terminos y sus definiciones para que alguien externo al database pueda entender de que trata
+
+EJERCICIO:
+
+ 
