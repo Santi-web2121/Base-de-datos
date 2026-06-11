@@ -23,3 +23,54 @@ Modelo de Evaluacion Base de Datos:
 EJERCICIO:
 
  
+drop database if exists tienda;
+create database tienda;
+
+create table Productos(
+Idproducto int primary key not null,
+NombreProducto varchar(25),
+Descripcion varchar(25),
+Precio Decimal,
+Disponibilidad bool
+);
+
+create table clientes(
+Idcliente int primary key not null,
+Nombre varchar(25),
+Apellido varchar(25),
+Correo varchar(50),
+Direccion varchar(50)
+);
+
+create table pedidos(
+Idpedido int primary key not null,
+Idcliente int,
+foreign key (Idcliente) references clientes (idcliente),
+fechaPedido date,
+EstadoPedido enum('entregado', 'enviado', 'en proceso', 'pendiente')
+);
+
+insert into Productos(idproducto, nombreProducto, descripcion, precio, disponibilidad) values 
+(1, 'escobillon', 'para barrer mucho', 5000, true), 
+(2, 'tostadora', 'para tostar pan', 10000, true),
+(3, 'air fryer', 'para freir sin aceite', 20000, true),
+(4, 'pizza congelada', 'para comer rico', 4000, true),
+(5, 'aifon', 'para gastar plata', 90000, false);
+
+insert into clientes(idcliente, nombre, apellido, correo, direccion) values
+(1, 'shirley', 'gonzalez', 'shirliloco@yahoo.com', 'calle13'),
+(2, 'bernardino', 'panchero', 'berpanchos@panchero.bue.ar', 'pancheria'),
+(3, 'hermano', 'gonzalez', 'hermanodeshirli@yahoo.com', 'calle13'),
+(4, 'Jorge', 'Cupini Jackson', 'jorge.cupini@bue.edu.ar', 'Muy Muy Lejano'),
+(5, 'Eduardo', 'Mestrovich', 'eduardo.mestrovich@bue.edu.ar', 'Olimpo');
+
+insert into pedidos(idpedido, idcliente, fechapedido, estadopedido) values
+(1, 5, '29/12/2026', 'En Proceso'),
+(2, 4, '19/11/2026', 'entregado'),
+(3, 1, '30/05/2026', 'pendiente'),
+(4, 2, '29/02/2026', 'enviado'),
+(1, 2, '29/02/2026', 'En Proceso');
+
+SELECT Clientes.Nombre, Pedidos.Fecha
+FROM Clientes
+INNER JOIN Pedidos ON Clientes.ID = Pedidos.ID_cliente;
