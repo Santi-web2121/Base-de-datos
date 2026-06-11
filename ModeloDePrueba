@@ -65,11 +65,11 @@ insert into clientes(idcliente, nombre, apellido, correo, direccion) values
 (5, 'Eduardo', 'Mestrovich', 'eduardo.mestrovich@bue.edu.ar', 'Olimpo');
 
 insert into pedidos(idpedido, idcliente, fechapedido, estadopedido) values
-(1, 5, '29-12-2026', 'En Proceso'),
-(2, 4, '19-11-2026', 'entregado'),
-(3, 1, '30-05-2026', 'pendiente'),
-(4, 2, '29-02-2026', 'enviado'),
-(1, 2, '29-02-2026', 'En Proceso');
+(1, 5, 29/12/2026, 'En Proceso'),
+(2, 4, 19/11/2026, 'entregado'),
+(3, 1, 30/05/2026, 'pendiente'),
+(4, 2, 29/02/2026, 'enviado'),
+(1, 2, 29/02/2026, 'En Proceso');
 
 SELECT Clientes.Nombre, Pedidos.Fecha
 FROM Clientes
