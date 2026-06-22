@@ -1,0 +1,87 @@
+drop database if exists streaming;
+create database streaming;
+use streaming;
+
+create table series(
+IDSerie int primary key not null,
+Nombreserie varchar(30),
+Anioestreno year,
+Creador varchar(30)
+);
+
+create table personajes(
+IDPersonaje int primary key not null,
+Nombrepersonaje varchar(20), 
+Idserie int,
+foreign key (Idserie) references series (Idserie),
+Rol varchar(20),
+Nivelenergia varchar(20)
+);
+
+create table episodios(
+IDEpisodio int primary key not null,
+Tituloepisodio varchar(30),
+Idserie int,
+foreign key (Idserie) references series (Idserie),
+Duracionmins int,
+Rating10 float
+); 
+
+create table habilidades(
+IDHabilidad int primary key not null,
+idpersonaje int,
+foreign key (idpersonaje) references personajes (idpersonaje),
+nombreha varchar(30),
+tipoha varchar(20)
+);
+
+create table enemigos(
+IDRivalidad int primary key not null,
+IDHeroe int,
+foreign key (idheroe) references personajes (idpersonaje),
+IDVillano int,
+foreign key (idvillano) references personajes (idpersonaje),
+EncuentrosTotales int
+);
+
+create table objetosMisticos(
+IDObjeto int primary key not null,
+NombreObj varchar(30),
+IDDuenio int,
+foreign key (idduenio) references personajes (idpersonaje),
+ValorSubasta int
+);
+
+insert into series(IDSerie, Nombreserie, anioestreno, creador) values
+(1, 'Hora de Aventura', 2010, 'Pendleton Ward'),
+(2, 'Ben 10', 2005, 'Duncan Rouleau'),
+(3, 'Billy y Mandy', 2003, 'Maxwell Atoms'),
+(4, 'Un Show Mas', 2010, 'J. G. Quintel'),
+(5, 'Coraje el Perro Cobarde', 1999, 'John R. Dilworth'),
+(6, 'El laboratorio de Dexter', 1996, 'Genndy Tartakovsky');
+
+insert into personajes(IDPersonaje, Nombrepersonaje, IDSerie, Rol, Nivelenergia) values
+(1, 'Finn el Humano', 1, 'Protagonista', 85),
+(2, 'Jake el Perro', 1, 'Protagonista', 90),
+(3, 'Rey Helado', 1, 'Antagonista', 75),
+(4, 'Ben Tennyson', 2, 'Protagonista', 95),
+(5, 'Vilgax', 2, 'Antagonista', 98),
+(6, 'Puro Hueso', 3, 'Secundario', 80),
+(7, 'Mordecai', '4', 'Protagonista', 60),
+(8, 'Rigby', 4, 'Protagonista', 55),
+(9, 'Coraje', 5, 'Protagonista', 40),
+(10, 'Dexter', 6, 'Protagonista', 70);
+
+insert into episodios(IDEpisodio, Tituloepisodio, IDSerie, Duracionmins, Rating10) values
+(1, )
+
+select idserie, nombreserie, creador
+from series
+group by series.nombreserie;
+
+select idpersonaje, nombrepersonaje, rol
+from personajes
+where personajes.nombrepersonaje like 'B%' 
+or personajes.nombrepersonaje like 'F%';
+
+select 
