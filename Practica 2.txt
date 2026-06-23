@@ -74,27 +74,18 @@ insert into personajes(IDPersonaje, Nombrepersonaje, IDSerie, Rol, Nivelenergia)
 
 insert into episodios(IDEpisodio, Tituloepisodio, IDSerie, Duracionmins, Rating10) values
 (1, 'Enchiridion', 1, 11, 9),
-(2, 'El problema con los limones', 1, 11, 8),
-(3, 'Y luego fueron 10', 2, 22, 9),
+(2, 'El problema con los limones', 1, 11, 8.5),
+(3, 'Y luego fueron 10', 2, 22, 9.5),
 (4, 'Secretos', 2, 22, 8),
 (5, 'La telaraña de Billy', 3, 22, 7),
 (6, 'El coco de Mandy', 3, 22, 8),
 (7, 'Mordecai y los Rigbys', 4, 11, 9),
-(8, 'Justicieros del parque', 4, 11, 8),
+(8, 'Justicieros del parque', 4, 11, 8.5),
 (9, 'La máscara', 5, 22, 10),
-(10, 'El rival de Dexter', 6, 11, 8);
+(10, 'El rival de Dexter', 6, 11, 7.5);
 
-insert into objetosMisticos(IDObjeto, NombreObj, IDDuenio, ValorSubasta) values
-(1, 'Enchiridion', 1, 50000),
-(2, 'Corona Helada', 2, 75000),
-(3, 'Omnitrix', 3, 100000),
-(4, 'Charm de Bezel', 4, 45000),
-(5, 'Guadana de Grim', 5, 90000),
-(6, 'Mano Maldita', 6, 60000),
-(7, 'Teclado del Poder', 7, 85000),
-(8, 'Camara del Tiempo', 8, 70000),
-(9, 'Mascara de Katz', 9, 55000),
-(10, 'Computadora de Dexter', 10, 65000);
+
+select idserie, nombreserie, creador
 from series
 group by series.nombreserie;
 
@@ -103,4 +94,6 @@ from personajes
 where personajes.nombrepersonaje like 'B%' 
 or personajes.nombrepersonaje like 'F%';
 
-select 
+select idepisodio, tituloepisodio, duracionmins, rating10
+from episodios
+where rating10 > 8.5 and duracionmins > 11;
