@@ -73,7 +73,16 @@ insert into personajes(IDPersonaje, Nombrepersonaje, IDSerie, Rol, Nivelenergia)
 (10, 'Dexter', 6, 'Protagonista', 70);
 
 insert into episodios(IDEpisodio, Tituloepisodio, IDSerie, Duracionmins, Rating10) values
-(1, )
+(1, 'Enchiridion', 1, 11, 9),
+(2, 'El problema con los limones', 1, 11, 8),
+(3, 'Y luego fueron 10', 2, 22, 9),
+(4, 'Secretos', 2, 22, 8),
+(5, 'La telaraña de Billy', 3, 22, 7),
+(6, 'El coco de Mandy', 3, 22, 8),
+(7, 'Mordecai y los Rigbys', 4, 11, 9),
+(8, 'Justicieros del parque', 4, 11, 8),
+(9, 'La máscara', 5, 22, 10),
+(10, 'El rival de Dexter', 6, 11, 8);
 
 select idserie, nombreserie, creador
 from series
