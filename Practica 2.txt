@@ -84,6 +84,30 @@ insert into episodios(IDEpisodio, Tituloepisodio, IDSerie, Duracionmins, Rating1
 (9, 'La máscara', 5, 22, 10),
 (10, 'El rival de Dexter', 6, 11, 7.5);
 
+insert into habilidadesespeciales (idpersonaje, nombrehabilidad, tipohabilidad) values
+(1, 'Espada Maestra', 'Combate'),
+(1, 'Liderazgo', 'Social'),
+(1, 'Resistencia', 'Fisica'),
+(1, 'Valentia', 'Mental'),
+(2, 'Estiramiento', 'Fisica'),
+(2, 'Transformacion', 'Magica'),
+(4, 'Omnitrix', 'Tecnologia'),
+(4, 'Inteligencia', 'Mental'),
+(4, 'Fuerza Alien', 'Fisica'),
+(5, 'Super Fuerza', 'Fisica'),
+(6, 'Inmortalidad', 'Magica'),
+(9, 'Cobardia Util', 'Mental'),
+(10, 'Genio Cientifico', 'Mental');
+
+insert into objetosmisticos (nombreobjeto, idpersonajeDueno, valorsubasta) values
+('Espada de Finn', 1, 15000),
+('Corona del Rey Helado', 3, 250000),
+('Omnitrix', 4, 500000),
+('Espada de Vilgax', 5, 80000),
+('Hoz Magica de Puro Hueso', 6, 3000),
+('Pistola Laser de Dexter', 10, 120000),
+('Guante Supremo de Mordecai', 7, 4500),
+('Teclado Magico de Rigby', 8, 6000);
 
 select idserie, nombreserie, creador
 from series
@@ -97,3 +121,4 @@ or personajes.nombrepersonaje like 'F%';
 select idepisodio, tituloepisodio, duracionmins, rating10
 from episodios
 where rating10 > 8.5 and duracionmins > 11;
+
