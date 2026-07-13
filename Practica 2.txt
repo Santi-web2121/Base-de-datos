@@ -125,8 +125,9 @@ from objetosmisticos
 where nombreobj like '%espada%'
 or nombreobj like '%anillo%';
 
-select  idpersonaje, nombrepersonaje, Nivelenergia, 
+select  idpersonaje, nombrepersonaje, Nivelenergia
 from personajes
-where rol = 'antagonista';
+where rol = 'antagonista'
+order by personajes.Nivelenergia desc limit 1;
 
-
+select 
