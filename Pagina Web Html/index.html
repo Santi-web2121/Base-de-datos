@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYSQL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">MYSQL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#introduccion">Introducción</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ddl-dml">DDL y DML</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#consultas">Consultas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#joins">Relaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#procedures">Store Procedure</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <header class="bg-primary text-white text-center py-5 mb-4">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Temario de SQL</h1>
+            <p class="lead">Desde la creación de tablas entidad relacion (DER) hasta el store procedure.</p>
+        </div>
+    </header>
+
+
+    <div class="container">
+
+
+        <section id="introduccion" class="mb-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title text-primary">1. Fundamentos de Bases de Datos</h2>
+                    <p class="card-text">
+                        SQL (Structured Query Language) es el lenguaje estándar para gestionar bases de datos relacionales. Permite almacenar, manipular y recuperar datos organizados en tablas compuestas por filas (registros) y columnas (campos).
+                    </p>
+                    <ul>
+                        <li><strong>Tipos de datos comunes:</strong> INT, VARCHAR, DATE, DECIMAL, BOOLEAN.</li>
+                        <li><strong>Clave Primaria (Primary Key):</strong> Identificador único para cada registro.</li>
+                        <li><strong>Clave Foránea (Foreign Key):</strong> Campo que conecta una tabla con la clave primaria de otra.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="ddl-dml" class="mb-5">
+            <h2 class="mb-3 text-secondary">2. Definición y Manipulación de Datos</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-start border-4 border-info">
+                        <div class="card-body">
+                            <h4 class="card-title">DDL (Data Definition Language)</h4>
+                            <p>Define y modifica la estructura de la base de datos.</p>
+                            <ul>
+                                <li><code>CREATE TABLE</code>: Crea nuevas tablas.</li>
+                                <li><code>ALTER TABLE</code>: Modifica la estructura existente.</li>
+                                <li><code>DROP TABLE</code>: Elimina una tabla por completo.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-start border-4 border-success">
+                        <div class="card-body">
+                            <h4 class="card-title">DML (Data Manipulation Language)</h4>
+                            <p>Permite operar sobre los datos almacenados.</p>
+                            <ul>
+                                <li><code>INSERT INTO</code>: Agrega nuevos registros.</li>
+                                <li><code>UPDATE</code>: Modifica información existente.</li>
+                                <li><code>DELETE</code>: Remueve filas específicas.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="consultas" class="mb-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title text-primary">3. Consultas y Filtros (SELECT)</h2>
+                    <p>La sentencia <code>SELECT</code> es el núcleo de SQL para la lectura de información.</p>
+                   
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <h5>Filtros Básicos</h5>
+                            <p>Uso de <code>WHERE</code> para aplicar condiciones con operadores como <code>=</code>, <code>&gt;</code>, <code>LIKE</code>, e <code>IN</code>.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Ordenamiento y Límites</h5>
+                            <p>Uso de <code>ORDER BY</code> (ASC/DESC) para ordenar los resultados y <code>LIMIT</code> o <code>TOP</code> para restringir la cantidad de filas.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Agregación</h5>
+                            <p>Funciones como <code>COUNT()</code>, <code>SUM()</code>, <code>AVG()</code> junto a <code>GROUP BY</code> y <code>HAVING</code> para resumir datos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="joins" class="mb-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title text-primary">4. Combinación de Tablas (JOINS)</h2>
+                    <p>Permiten consultar información distribuida en múltiples tablas mediante sus relaciones.</p>
+                   
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover mt-3">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Tipo de JOIN</th>
+                                    <th>Descripción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>INNER JOIN</code></td>
+                                    <td>Devuelve solo los registros que coinciden en ambas tablas.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>LEFT JOIN</code></td>
+                                    <td>Devuelve todos los registros de la tabla izquierda y las coincidencias de la derecha.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>RIGHT JOIN</code></td>
+                                    <td>Devuelve todos los registros de la tabla derecha y las coincidencias de la izquierda.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>FULL JOIN</code></td>
+                                    <td>Devuelve registros cuando hay una coincidencia en cualquiera de las dos tablas.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="procedures" class="mb-5">
+            <div class="card shadow-sm border-warning">
+                <div class="card-header bg-warning text-dark fw-bold fs-5">
+                    5. Procedimientos Almacenados (Store Procedure)
+                </div>
+                <div class="card-body">
+                    <p>
+                        Un <strong>Store Procedure</strong> es un conjunto de instrucciones SQL almacenado en el servidor de base de datos que se puede ejecutar repetidamente mediante un nombre asignado.
+                    </p>
+
+
+                    <h5 class="mt-4">Ventajas Principales:</h5>
+                    <div class="row text-center my-3">
+                        <div class="col-md-4 mb-2">
+                            <div class="p-3 border bg-light rounded">
+                                <strong>Reutilización</strong>
+                                <p class="mb-0 small">Evita duplicar código SQL en la aplicación.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <div class="p-3 border bg-light rounded">
+                                <strong>Rendimiento</strong>
+                                <p class="mb-0 small">Se compila una sola vez en el servidor.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <div class="p-3 border bg-light rounded">
+                                <strong>Seguridad</strong>
+                                <p class="mb-0 small">Controla el acceso directo a las tablas.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <h5 class="mt-4">Conceptos Clave:</h5>
+                    <ul>
+                        <li><strong>Parámetros de Entrada (IN):</strong> Permiten pasar valores al procedimiento para usarlos en sus consultas.</li>
+                        <li><strong>Parámetros de Salida (OUT):</strong> Permiten devolver datos procesados al entorno que realiza la llamada.</li>
+                        <li><strong>Control de Flujo:</strong> Uso de estructuras lógicas dentro del procedimiento como <code>IF...ELSE</code>, <code>WHILE</code> y manejo de transacciones (<code>BEGIN TRANSACTION</code>, <code>COMMIT</code>, <code>ROLLBACK</code>).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">Resumen de los contenidos vistos en SQL</p>
+            <p> Hecho por Santiago Cabezas</p>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
